@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{/fragment/header :: header('넌 뭐봐?')}"></head></head>
+<body>
+
+<navbar th:fragment="navbar (login)" th:id="navbar">
+    <div id="navbar-inner">
+
+        <div class="navbar-item">
+            <a href="/">
+                <div id="div-home" class="navbar-button">
+                    <i class="axi axi-home"></i>
+                    홈
+                </div>
+            </a>
+            <a href="/notice/channel">
+                <div id="div-channel" class="navbar-button">
+                    <i class="axi axi-tv" id="icon-channel"></i>
+                    채널 추천
+                </div>
+            </a>
+
+            <div id="wrap-bookmark">
+                <div id="bookmark">
+                    <span id="bookmark-span">
+                        <i class="axi axi-bookmark-outline icon-bookmark"></i>
+                        즐겨찾기
+                    </span>
+                </div>
+                <div id="bookmark-item">
+                    <a href="/notice/bookmark" class="bookmark-button">
+                        <div id="div-bookmark" class="navbar-button">
+                            <i class="axi axi-bookmark-outline icon-bookmark"></i>
+                            영상 즐겨찾기
+                        </div>
+                    </a>
+                    <a href="/notice/bookmark/channel" class="bookmark-button">
+                        <div id="div-bookmark-channel" class="navbar-button">
+                            <i class="axi axi-bookmark-outline icon-bookmark"></i>
+                            채널 즐겨찾기
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="wrap-my-notice-channel">
+                <div id="my-notice">
+                    <span id="notice-channel-span">
+                        <i class="axi axi-folder-open2"></i>
+                        내가 쓴 글
+                    </span>
+                </div>
+                <div id="my-notice-channel-item">
+                    <a href="/notice/my_notice" class="my-notice-channel-button">
+                        <div id="div-my-notice" class="navbar-button">
+                            <i class="axi axi-folder-open2 icon-my-notice-channel"></i>
+                            내가 쓴 영상
+                        </div>
+                    </a>
+                    <a href="/notice/my_channel" class="my-notice-channel-button">
+                        <div id="div-my-channel" class="navbar-button">
+                            <i class="axi axi-folder-open2 icon-my-notice-channel"></i>
+                            내가 쓴 채널
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="navbar-sign-in">
+            <div th:if="${login == null}">
+                <div class="login-valid" id="none"></div>
+                <a href="/member/sign_on">
+                    <div id="div-sign-in" class="navbar-button">
+                        로그인 / 회원가입
+                    </div>
+                </a>
+            </div>
+
+            <div th:if="${login != null}" id="my-info">
+                <span th:text="'&quot;'+*{session.member.getDisplayName()}+'&quot;'"></span>
+                <span>편하게 둘러봐</span>
+            </div>
+            <div th:if="${login != null}" id="navbar-sign-in-buttons">
+                <div class="login-valid" th:id="${session.member.getEmail()}"></div>
+                <a href="/member/sign_out">
+                    <div id="div-sign-out" class="navbar-button">
+                        로그아웃
+                    </div>
+                </a>
+                <a href="/note_write">
+                    <div id="div-sign-in" class="navbar-button">
+                        글쓰기
+                    </div>
+                </a>
+            </div>
+            <i class="axi axi-moon2 light" id="theme-button"></i>
+        </div>
+
+    </div>
+
+
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/navbar/navbar.css}">
+    <script src="/js/theme/theme.js"></script>
+    <script src="/js/navbar/navbar_click.js"></script>
+</navbar>
+
+</body>
+</html>

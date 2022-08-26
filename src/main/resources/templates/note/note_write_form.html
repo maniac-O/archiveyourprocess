@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{/fragment/header :: header('넌 뭐봐?')}"></head>
+</head>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/notice/notice.css}">
+<body th:class="${session.theme == 'dark' ? 'theme-dark' : 'theme-light'}">
+
+<navbar th:replace="~{/fragment/navbar :: navbar(${session.member})}"></navbar>
+
+<div id="inner">
+    <div class="notice-write" th:if="${session.member != null}">
+        <div id="notice-type-item">
+            <select id="notice-type" class="notice-form-items notice-buttons">
+                <option value="video">동영상 공유</option>
+                <option value="channel">채널 공유</option>
+            </select>
+            <div id="wrap-notice-form">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="~{/fragment/footer :: footer}"></footer>
+
+<script src="/js/notice/notice_youtubeUrl.js"></script>
+<script src="/js/notice/notice_valid.js"></script>
+<script src="/js/notice/notice_type.js"></script>
+
+</body>
+</html>

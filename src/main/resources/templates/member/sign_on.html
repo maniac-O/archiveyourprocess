@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{/fragment/header :: header('넌 뭐봐?')}"></head></head>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/home/home.css}">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/signon/sign_on.css}">
+
+<script type="module">
+
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    import {getAuth, signInWithPopup, GoogleAuthProvider}  from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js'
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyB5P-AHSSQrDSxgN8-ruOXXCLnYeplIzJU",
+        authDomain: "invest-info-compilation.firebaseapp.com",
+        projectId: "invest-info-compilation",
+        storageBucket: "invest-info-compilation.appspot.com",
+        messagingSenderId: "28962894755",
+        appId: "1:28962894755:web:135d972be48d098f1fa016",
+        measurementId: "G-HWV1JFV098"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+
+
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            // The signed-in user info.
+            const user = result.user;
+
+            console.log(user)
+
+            let loginInfo = document.querySelectorAll(".loginInfo")
+            loginInfo[0].value = user['uid']
+            loginInfo[1].value = user['accessToken']
+            loginInfo[2].value = user['email']
+            loginInfo[3].value = user['displayName']
+
+            console.log("suc!!!")
+
+            document.querySelector("#loginForm").submit()
+
+
+
+        }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+
+        console.log(error)
+    });
+</script>
+
+<body th:class="${session.theme == 'dark' ? 'theme-dark' : 'theme-light'}">
+
+<div th:unless="${session.theme == 'dark'}" class="wrap-loading_img">
+    <img class="loading_img" src="/imgs/loading.gif">
+</div>
+
+<div th:if="${session.theme == 'dark'}" class="wrap-loading_img">
+    <img class="loading_img" src="/imgs/loading_black.gif">
+</div>
+
+<form action="/member/sign_on" method="post" id="loginForm">
+    <input type="hidden" class="loginInfo" th:field="${member.uid}" id="uid"/>
+    <input type="hidden" class="loginInfo" th:field="${member.accessToken}" id="accessToken"/>
+    <input type="hidden" class="loginInfo" th:field="${member.email}" id="email"/>
+    <input type="hidden" class="loginInfo" th:field="${member.displayName}" id="displayName"/>
+    <input type="hidden" class="loginInfo" name="prevUrl" th:value="${prevUrl}"/>
+</form>
+
+<footer th:replace="~{/fragment/footer :: footer}"></footer>
+
+</body>
+</html>
