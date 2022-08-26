@@ -1,0 +1,226 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  padding: 0;
+  margin: 0;
+  color: #1E2329;
+}
+
+a {
+  text-decoration: none;
+  color: #1E2329;
+}
+
+#cards {
+  margin: auto auto;
+  justify-content: center;
+}
+
+.theme-dark {
+  background: #1E2329 !important;
+  color: white !important;
+}
+
+#navbar {
+  top: 0;
+  width: 100%;
+  display: block;
+  position: fixed;
+  font-size: 18px;
+  background: white;
+  padding: 15px 5px;
+  border-bottom: solid 1px lightgrey;
+  z-index: 9999;
+}
+
+#navbar-inner {
+  max-width: 1050px;
+  margin: auto auto;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: 0.7s;
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#navbar-sign-in {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 24px;
+  vertical-align: center;
+}
+
+#navbar-sign-in-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.dark {
+  font-size: 24px !important;
+  line-height: 1 !important;
+  color: white;
+}
+
+#theme-button {
+  font-size: 36px;
+  line-height: 0.65;
+}
+
+#icon-channel {
+  color: inherit;
+}
+
+.icon-bookmark {
+  color: #F0B90B;
+}
+
+#icon-channel {
+  color: red;
+}
+
+.navbar-button {
+  color: inherit;
+}
+
+#my-info {
+  color: grey;
+}
+
+#my-info-mobile {
+  color: grey;
+  display: none;
+}
+
+#wrap-inner-upper {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+
+/*            */
+.bookmark-button {
+  padding: 15px 10px;
+  border-top: solid 1px lightgrey;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#wrap-bookmark {
+  position: relative;
+  transition: none;
+}
+
+#bookmark-item {
+  position: absolute;
+  top: 31px;
+  left: -13px;
+  display: none;
+  width: 100vw;
+  background: white;
+  overflow: hidden;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+/*                   */
+.my-notice-channel-button {
+  padding: 15px 10px;
+  border-top: solid 1px lightgrey;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#wrap-my-notice-channel {
+  position: relative;
+}
+
+#my-notice-channel-item {
+  position: absolute;
+  top: 31px;
+  left: -13px;
+  display: none;
+  width: 100vw;
+  background: white;
+  overflow: hidden;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.click-menu {
+  margin-top: 200px !important;
+  transition: 0.7s;
+}
+
+.click-navbar {
+  height: 135px !important;
+}
+
+@media (max-width: 400px) {
+  #navbar {
+    padding: 15px 0;
+    font-size: 13px;
+  }
+  #navbar-inner {
+    width: 90%;
+    margin: auto auto;
+  }
+  #cards {
+    width: 340px;
+    margin: auto auto;
+    align-items: center;
+  }
+  #my-info {
+    display: none;
+  }
+  #my-info-mobile {
+    display: block;
+  }
+  #wrap-inner-upper {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 1000px) {
+  #navbar {
+    padding: 15px 0;
+    font-size: 13px;
+  }
+  #navbar-inner {
+    width: 90%;
+    height: 35px;
+    margin: auto auto;
+  }
+  .navbar-item {
+    gap: 10px;
+  }
+  #navbar-sign-in {
+    height: 35px;
+  }
+  #navbar-sign-in-buttons {
+    gap: 10px;
+  }
+  /* clicked navbar */
+  #bookmark-item {
+    top: 40px;
+  }
+  #my-notice-channel-item {
+    top: 40px;
+  }
+}
+
+/*# sourceMappingURL=navbar.css.map */

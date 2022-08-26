@@ -1,0 +1,112 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  padding: 0;
+  margin: 0;
+  color: #1E2329;
+}
+
+a {
+  text-decoration: none;
+  color: #1E2329;
+}
+
+#cards {
+  margin: auto auto;
+  justify-content: center;
+}
+
+.theme-dark {
+  background: #1E2329 !important;
+  color: white !important;
+}
+
+#inner {
+  max-width: 1050px;
+  margin: auto auto;
+  margin-top: 81px;
+  position: relative;
+  transition: 0.7s;
+}
+
+.notice-write {
+  margin: 40px auto;
+  width: 1050px;
+  height: 60vh;
+}
+
+#notice-type-item {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  margin: auto auto;
+  width: 600px;
+}
+
+.notice-write-item-item {
+  width: 100%;
+  height: 30px;
+  margin-top: 8px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.notice-buttons {
+  background: #FAFAFA;
+  color: #1E2329;
+  padding: 6px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+#wrap-notice-form {
+  width: 100%;
+}
+
+#notice-form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+  background: inherit;
+  color: inherit;
+}
+
+#wrap-whos-youtube {
+  width: 100%;
+}
+
+#whos-youtube {
+  color: rgb(41, 127, 255);
+}
+
+#category {
+  display: block;
+  width: 20%;
+}
+
+#button-submit {
+  width: 80%;
+  margin: auto auto;
+  margin-top: 8px;
+}
+
+.form-theme-dark {
+  background: #181A20;
+  color: #EAECEF;
+}
+
+@media (max-width: 1050px) {
+  .notice-write {
+    width: 90%;
+    margin: 15px 5%;
+  }
+  #notice-type-item {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=notice.css.map */

@@ -1,0 +1,112 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  padding: 0;
+  margin: 0;
+  color: #1E2329;
+}
+
+a {
+  text-decoration: none;
+  color: #1E2329;
+}
+
+#cards {
+  margin: auto auto;
+  justify-content: center;
+}
+
+.theme-dark {
+  background: #1E2329 !important;
+  color: white !important;
+}
+
+.footer {
+  display: block;
+  height: 100px;
+}
+
+.footer-root {
+  margin: auto auto;
+  display: flex;
+  justify-content: center;
+  font-weight: lighter;
+}
+
+.footer-line {
+  width: 90%;
+  height: 1px;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px 0 0 0;
+}
+
+.footer-text-wrap {
+  display: inline-flex;
+  align-items: flex-start;
+  margin: auto auto;
+  margin-top: 30px;
+}
+
+.footer-right {
+  margin-left: 60px;
+}
+
+.footer-top {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
+}
+
+.footer-bottom {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 13px;
+}
+.footer-bottom div {
+  display: flex;
+}
+
+.footer-bottom-one {
+  height: 20px;
+}
+.footer-bottom-one span {
+  margin-right: 30px;
+}
+
+.footer-left-divide-line {
+  display: inline-block;
+  width: 1px;
+  height: 30%;
+  margin: auto 30px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0 1px 0 0;
+}
+
+#footer-logo {
+  width: 100px;
+}
+
+@media (max-width: 600px) {
+  .footer-text-wrap {
+    flex-direction: column;
+  }
+  .footer-right {
+    margin: 0;
+  }
+  .footer-bottom div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+/*# sourceMappingURL=footer.css.map */

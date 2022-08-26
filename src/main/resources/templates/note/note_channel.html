@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{/fragment/header :: header('넌 뭐봐?')}"></head></head>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/home/home.css}">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/home/home_card.css}">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/notice/notice_card.css}">
+<body th:class="${session.theme == 'dark' ? 'theme-dark' : 'theme-light'}">
+
+<navbar th:replace="~{/fragment/navbar :: navbar(${session.member})}"></navbar>
+
+
+<div th:replace="~{/fragment/channel_frag :: inner_notice(${channels}, true)}"></div>
+
+<div id="popup-area"></div>
+
+<footer th:replace="~{/fragment/footer :: footer}"></footer>
+<script src="/js/notice/notice_channel_subscribe.js"></script>
+<script src="/js/notice/notice_channel_show_more.js"></script>
+<script src="/js/notice/notice_setting_button.js"></script>
+<script src="/js/notice/notice_type_channel_change.js"></script>
+
+</body>
+</html>

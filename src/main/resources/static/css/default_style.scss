@@ -1,0 +1,47 @@
+$bgcolor: #181A20;
+
+$color-default-grey: #181A20;
+$color-default-dark-grey: #0B0E11;
+$color-default-light-grey: #FAFAFA;
+$color-default-yellow: #FCD535;
+
+$color-font-dark-grey: #1E2329;
+
+$font_size_big: 23px;
+$font_size_medium: 18px;
+$font_size_small: 13px;
+
+$inner_size_width: 1050px;
+$inner-size-small-width: 600px;
+
+$card-size-width: 336px;
+$card-size-height: 370px;
+
+$transition-time: 0.7s;
+
+*{
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+  background: #fafafa;
+
+  padding: 0;
+  margin: 0;
+  color:$color-font-dark-grey;
+}
+
+a{
+  text-decoration: none;
+  color: $color-font-dark-grey;
+}
+
+#cards{
+  margin: auto auto;
+  justify-content: center;
+}
+
+.theme-dark{
+  background: $color-font-dark-grey !important;
+  color:white !important;
+}

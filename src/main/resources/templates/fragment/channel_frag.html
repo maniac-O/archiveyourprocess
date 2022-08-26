@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="inner_notice (channels, needToCategory)"  id="inner">
+
+    <div id="wrap-inner-upper">
+        <div th:if="${session.member != null}" id="my-info-mobile">
+            <span th:text="'&quot;'+*{session.member.getDisplayName()}+'&quot;'"></span>
+            <span>편하게 둘러봐</span>
+        </div>
+        <div th:if="${needToCategory eq true}" class="wrap-select-category">
+            <select id="notice-type-change" th:class="${session.theme == 'dark' ? 'theme-dark' : 'theme-light'}">
+                <option value="">카테고리선택</option>
+                <option th:selected="${#strings.equals(param.noticeType, noticeType_name[index.index])}" th:value="${noticeType_name[index.index]}" th:text="*{label}" th:each="label, index:${noticeType_label}"></option>
+            </select>
+        </div>
+    </div>
+
+    <div id="cards">
+        <div class="card-item" th:each="channel:${channels}" th:id="'card'+*{channel.getId()}">
+            <div class="card-item-upper">
+                <div class="card-item-upper-left">
+                    <span class="card-item-channel" th:text="*{channel.getChannelName()}"></span>
+                </div>
+                <div class="card-item-upper-right">
+                    <i class="axi axi-turned-in-not subscribe sub-off" onclick="onChannelSubscribeClick(this)" th:id="'index'+*{channel.getId()}" th:if="${session.member != null and channel.getSubscribe() != true}" ></i>
+                    <i class="axi axi-turned-in subscribe sub-on" onclick="onChannelSubscribeClick(this)" th:id="'index'+*{channel.getId()}" th:if="${session.member != null and channel.getSubscribe() == true}" ></i>
+                    <i class="axi axi-more-vert notice-setting" onclick="showSettings(this, 'channel')" th:id="'setting'+*{channel.getId()}" th:if="${session.member != null and session.member.getEmail().equals(channel.getMember.getEmail())}"></i>
+                </div>
+            </div>
+
+            <div class="card-item-middle">
+                <div class="card-item-middle-img">
+                    <a class="channel-imgs" th:href="*{channel.getChannelUrl()}" target='_blank'>
+                        <img class="card-item-img card-item-middle-thumbnail" th:src="*{channel.getThumbnail()}">
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-item-under">
+                <a th:href="'/channel/name?id='+*{channel.getMember.getId()}">
+                    <span class="card-item-displayName" th:text="*{channel.getMember().getDisplayName()}"></span>
+                </a>
+                <a th:href="'/channel/type?noticeType='+*{channel.getNoticeType.name()}">
+                    <span class="card-item-noticeType" th:if="*{channel.getNoticeType().label() != null}" th:classappend="'noticeType_'+*{channel.getNoticeType().name()}" th:text="*{channel.getNoticeType().label()}"></span>
+                </a>
+            </div>
+            <div class="card-item-description" th:text="*{channel.getDescription()}"></div>
+            <div class="card-item-time" th:text="*{#strings.substring(channel.getTime().getLastTime(),0,10)}"></div>
+        </div>
+    </div>
+    <div th:if="${channels != null}">
+        <div id="show-more" th:if="${channels.size() > 0}" th:class="'last'+${channels.get(channels.size()-1).getId()}" onclick="onShowMoreClick(this)">
+            <span>더보기</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

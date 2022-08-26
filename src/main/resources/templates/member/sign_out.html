@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{/fragment/header :: header('넌 뭐봐?')}"></head></head>
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/home/home.css}">
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/signon/sign_on.css}">
+
+<script th:inline="javascript">
+    let prevUrl = /*[[${prevUrl}]]*/ [];
+</script>
+<script type="module">
+
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    import {getAuth, signOut}  from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js'
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyB5P-AHSSQrDSxgN8-ruOXXCLnYeplIzJU",
+        authDomain: "invest-info-compilation.firebaseapp.com",
+        projectId: "invest-info-compilation",
+        storageBucket: "invest-info-compilation.appspot.com",
+        messagingSenderId: "28962894755",
+        appId: "1:28962894755:web:135d972be48d098f1fa016",
+        measurementId: "G-HWV1JFV098"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+
+    signOut(auth)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            // The signed-in user info.
+
+            console.log("suc!!!")
+
+            window.location.href = prevUrl;
+
+
+        }).catch((error) => {
+
+        console.log(error)
+    });
+</script>
+
+<body th:class="${session.theme == 'dark' ? 'theme-dark' : 'theme-light'}">
+
+<div th:unless="${session.theme == 'dark'}" class="wrap-loading_img">
+    <img class="loading_img" src="/imgs/loading.gif">
+</div>
+
+<div th:if="${session.theme == 'dark'}" class="wrap-loading_img">
+    <img class="loading_img" src="/imgs/loading_black.gif">
+</div>
+
+<footer th:replace="~{/fragment/footer :: footer}"></footer>
+
+</body>
+</html>

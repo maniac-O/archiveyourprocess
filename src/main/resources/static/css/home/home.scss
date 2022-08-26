@@ -1,0 +1,25 @@
+@import "../default_style";
+
+
+#banner{
+  height: 400px;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+}
+
+.wrap-select-category{
+  display: flex;
+  justify-content: right;
+}
+
+#notice-type-change{
+  background: #FAFAFA;
+  color: $color-font-dark-grey;
+  padding:6px;
+  border:1px solid grey;
+  border-radius: 4px;
+}

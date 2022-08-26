@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<footer th:fragment="footerDefault" th:class="footer">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/footer/footer.css}">
+
+    <!--div class="footer-line"></div-->
+    <div class="footer-root">
+        <div class="footer-text-wrap">
+
+
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img id="footer-logo" src="/icon/logo.png" alt="LOGO">
+                </div>
+            </div>
+
+
+            <div class="footer-right">
+                <div class="footer-bottom">
+                    <div class="footer-bottom-one">
+                        <span>
+                            대표 : 조승현
+                        </span>
+                        <span>
+                            이메일 : cj45645@naver.com
+                        </span>
+                        <span>
+                            대표 번호 : 010-5115-3154
+                        </span>
+                    </div>
+
+                    <div class="footer-bottom-two">
+                        <span>
+                            위치 : 40691 서울시 동작구 어쩌고 저쩌고
+                        </span>
+                    </div>
+                    <div class="footer-bottom-three">
+                        <span>
+                            Copyright © SH CONSTRUCTION (조승현 작품) Co., Ltd. All rights reserved.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
